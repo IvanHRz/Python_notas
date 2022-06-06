@@ -1,0 +1,128 @@
+
+para poder cerrar un programa en la consola antes de que termine lo hacemos con control + c
+input  entrada de datos 
+round(variable,decimales_deseados)  definimos cuantos decimales queremos  
+colocas un emoji con el comando windows + punto
+en python las funciones empiezan siempre con minusculas, unca con numeros y las palabras se separan con guion bajo 
+def creas una funcion (def =definicion de funcion) por lo tanto lo usas asi: def nombre_de_fucion(): contenido de la funcion
+en def puedes escribir parametros dentro delos parentecis 
+
+usamos las palabras "continue y break" cuando usamos un condicional en un bucle continue nos indica salsar un valor especifico y break sale del condicional 
+
+
+funciones de string 
+variable.upper() transforma el contenido de la varable en cuestion en mayusculas 
+variable.capitalize() transforma la primera letra de un nombre en mayusculas
+variable.strip() elimina los espacios que pueden estar a final o al principio de una cadena de caracteres 
+variable.lower()  se transforma la cadena en minusculas 
+variable.replace("o","a") replace intercambia letras en una cadena, por ejemplo en una cadena reemplazara odas las letras o por letras a 
+variable[indice] con esto podemos acceder a una letra en especifico en una cadena de caracteres usando un vector(indice)
+len(varible) nos dice cuantos caracteres tiene nuestra cadena 
+variable[elemnto_inicial:elemento_final] aqui podemos partir una cadena de txto por ejempo variable[:3] va del primer elemento al 3
+variable[elemnto_inicial:elemento_final:cantidad_de_pasos] ejemplo variable[1:7:2] partimos del elemnto 1 al 7 de 2 en 2 
+
+para convertir los elementos de una lista en un string hacemos uso del modulo "".join(lista)
+
+elevar unumero es poner un numero luego dos asteriscos yal final la exponencial ejemplo 2**2   == dos elevado al cuadrado
+
++++++punto de entrada ++++++
+
+if __name__ == "__main__":
+    run()
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+
+
+si queremos pner una constante ponemos todo el ombre en mayusculas por ejemplo: PI=3.1416      ahi sabemos que el valir de la constante pi es 3.14 y nunca va a variar
+
+existe una funcion llamada rango que trabaja con dos parametros range(pa1,pa2) se utiliza en el bucle for  
+estructura del bucle for:
+for i in range(0,10):
+    print (condicion) 
+
+ejemplo:
+ for i in range (10):
+        print (1*i)
+
+
+eso imprimira la tabla del 1
+
+
+estructura dewhile y ejemplo:
+aqui ponemos una condicion e imprimimos un exponencial poniendo el valor de la operacion al principio y otra dentro del bucle 
+LIMITE = 1000
+    expo = 0
+    valor = 2**expo
+ while valor <LIMITE: 
+        print ("2 elevado a: " + str(expo)+ " es igual a: "+ str (valor))
+        expo+=1
+        valor = 2**expo
+
+
+                       ++++++++++++++++++++Paquete de codigo++++++++++++++
+random es unpaquete de codigo que contiene las fuciones suficientes para trabajar con aleatoriedad entre dos parámetros
+se utiliza con la funcion
+import    ejemplo para utilizar el paquete random ponemos: import random
+al utilizar . nosotros accedemos a las funciones de un modulo en este caso random 
+si queremos ocupar una de sus funciones por ejemplo generar un numero aleatorio de 1 a 100 ponemos: random.randint(1,100)   
+ahi le pedimos que genere un numero aleatorio entero del 1 al 100
+otro modulo de random es .choise() el cual elige un elemento al azar de una lista y lo almacena en una variable ejemplo:
+variable = random.choice(lista_de_la_que_seleccionara_los_elementos)     
+formato A3++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+                            +++++++++++++Estructura de datos+++++++++++++
+                                               Listas
+Una lista de caracteres (vector) se forma con un grupo de elementos entre corchetes [] las listas son un objeto dinamico se pueden agregar y borrar elementos
+en un vector de datos podemos agregar más datos a los establecidos en su declaracion con .append hacemos uso de un modulo que nos 
+permite agregar un valor al vector ejemplo: 
+j = [1,2,true,4.5]
+
+y queremos agregar false 
+hacemos:
+
+j.append(false)  
+y optendríamos
+
+j = [1,2,true,4.5,false]
+
+para borrar datos usamos el módulo .pop en donde especificamos el indice en donde se encuentra el dato que no queremos y lo eiminamos
+ejemplo:
+
+j.pop(3)
+j=[1,2,true,false]
+
+                                                Tuplas
+
+Una lista de caracteres (vector) se forma con un grupo de elementos entre parentesis () las tupla son un objeto estático no se pueden agregar o borrar elementos
+es más eficiente y rápido trabajar con tuplas en bucles y se consideran inmutable que significa que no puede cambiar 
+
+                                               Diccionarios
+los diccionarios sirven para ordenar datos y un diccionario se divide en dos etapas las keys y los values 
+creamos un diccionario con esta estructura:
+
+variable_nombre_del_diccionario = {
+    "nombre_de_la_llave1": nombre_del_valor1
+    "nombre_de_la_llave2": nombre_del_valor2
+    "nombre_de_la_llave3": nombre_del_valor3
+}
+ 
+podemos llamar al nombre de las llaves con el módulo .keys() y podemos llamar a los valores con el módulo .values()
+ejemplo:
+for iterador in variable_nombre_del_diccionario.keys():
+    print(iterador) 
+
+
+esto nos imprimira el nombre_de_la_llave del diccionario
+de la misma forma si queremos imprimir los valores del dicionario:
+
+for iterador in variable_nombre_del_diccionario.values():
+    print(iterador)  
+
+esto nos imprimira cada nombre_del_valor del diccionario
+
+para imprimir los dos hacemos, hacemos uso del modulo .items():
+
+for iterador1,iterador2 in variable_nombre_del_diccionario.items():
+    print(iterador1 + iterador2)  
+
+
