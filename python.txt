@@ -1,4 +1,5 @@
-
+para inicializar visual studio code ponemos en la onsola "code" y si estamos situados en una carpeta en donde crearemos un archivo
+ponemos "code ." esto nos abrira visual studio code posicionando en la carpeta actual, por eso ponemos el punto 
 para poder cerrar un programa en la consola antes de que termine lo hacemos con control + c
 input  entrada de datos 
 round(variable,decimales_deseados)  definimos cuantos decimales queremos  
@@ -57,6 +58,36 @@ LIMITE = 1000
         expo+=1
         valor = 2**expo
 
++++++++++++++++++++++++++++++++++++++++++++Break y continue +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Continue: 
+podemos usar continue en un condicional cuando nuestra condicion se cumple pero al mismo
+tiempo si se cumple no queremos que ejecute una accion y que solo pase de argo a la siguiente linea de
+codigo y asi no detener el programa. Ejemplo:
+en este ejemplo queremos imprimir los numeros del 1 al 1000 pero sin imprimir los numeros pares, al cumplir
+la condicion de detectar un numero par el condicional saltara a la siguiente linea de codigo y no imprimira 
+el umero par
+
+def run():
+    for contador in range(1000):
+        if contador % 2 != 0:
+            continue
+        print(contador)   
+Break:
+de forma similar que con el continue, brak salta la linea pero comi diferencia deja de ejecutar el bucle.
+Ejemplo:aqui el programa imprimira todos los numeros del rang pero en caso de encontrarse con el numero
+5698 dejara de ejecutarse  
+  
+def run():
+    for i in range(1000):
+    print(contador)
+        if i == 5698
+           break
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+nota: si en un if quieres condicionar que un valor es igual a TRUE puedes omitir poner"= TRUE"
+ya que si no lo pones python lo entiende por defecto
+           
+
 
                        ++++++++++++++++++++Paquete de codigo++++++++++++++
 random es unpaquete de codigo que contiene las fuciones suficientes para trabajar con aleatoriedad entre dos parámetros
@@ -94,16 +125,17 @@ j=[1,2,true,false]
                                                 Tuplas
 
 Una lista de caracteres (vector) se forma con un grupo de elementos entre parentesis () las tupla son un objeto estático no se pueden agregar o borrar elementos
-es más eficiente y rápido trabajar con tuplas en bucles y se consideran inmutable que significa que no puede cambiar 
+es más eficiente y rápido trabajar con tuplas en bucles y se consideran inmutable que significa que no puede cambiar y eso ahorra gasto
+de memoria y optimizan nuestro trabajo 
 
                                                Diccionarios
 los diccionarios sirven para ordenar datos y un diccionario se divide en dos etapas las keys y los values 
 creamos un diccionario con esta estructura:
 
 variable_nombre_del_diccionario = {
-    "nombre_de_la_llave1": nombre_del_valor1
-    "nombre_de_la_llave2": nombre_del_valor2
-    "nombre_de_la_llave3": nombre_del_valor3
+    "nombre_de_la_llave1": nombre_del_valor1,
+    "nombre_de_la_llave2": nombre_del_valor2,
+    "nombre_de_la_llave3": nombre_del_valor3,
 }
  
 podemos llamar al nombre de las llaves con el módulo .keys() y podemos llamar a los valores con el módulo .values()
@@ -126,3 +158,149 @@ for iterador1,iterador2 in variable_nombre_del_diccionario.items():
     print(iterador1 + iterador2)  
 
 
++++++++++++++++++++++++++++++++++++++++++++++++++++dOCUMENTACION DE PYTHON++++++++++++++++++
+https://docs.python.org/3/
+++++++++++++++++++++++++++++++++++++++++++++++++++++Creacion de un entorno virtual+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1.- se crea una carpeta en donde se alvergará nuestro entorno virtual
+2.- se inicializa git con "git init"
+3.- se crea el entorno virtual, en el cual vivira una version especifica de python destinada para este proyecto:
+primero ponemos "py" para especificar que vamos a trabajar con python en windows o "python3" en linux y mac
+-m en python significa módulo, venv significa virtual enviroment que seria la crecion de nuestro entorno virtual
+ahora hay que poner el nombre del entorno, pero por convencion se pone tambien venv, el comando completo sería:
+
+py -m venv venv   
+
+con ese comando creamos un entorno virtual y se creara dentro de una carpeta llamada venv/ la cual podemos ver con ls
+4.-activamos el entorno virtual:
+si estamos e linux usar el comando:source venv/bin/activate
+si estamos en windows usar el comando: .\venv\Scripts\activate
+
+la carpeta "bin" de linux y mac en windows es igual a Scripts  
+para sair del entorno virtual ponemos el comando: deactivate  
+
+
+5.- ya que es muy largo el comando para activar el entorno virtual, nosotros creamos un alias para ese comando:
+en donde alias es el comando para crear una palabra clave que sustituya a un comando mas largo, despues le asignamos un nombre,
+en este caso lo nombramos "avenv" que significa "activate virtual enviromen" y le asignamos nombre del comando al cual 
+sustituirá      
+alias avenv=.\vevn\Scripts\activate
+
+6.-a partir de este momento entraremos al entorno virtual usando avenv
+
+nuestra version de python actual 3.10.5
+
+
+Nota:si vuelve a salir el error 101 hacer lo siguiente
+unistall the Python 3.9.2
+reinstall the Python 3.9.2
+Select Custom install
+Check(Tick) install for all users
+Click install 
+
+alias en linux++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*Para Linux primero ejecuten comando
+**
+
+sudo apt-get install python3-venv
+para instalar módulos de entornos virtuales de python
+
+Para el alias permanente:
+1.- acceder a archivo bashrc por medio de vim
+
+vim ~/.bashrc
+2.- Ir hasta abajo del archivo para escribir en archivo presiona letra i y escribe lo siguiente:
+
+#Mis alias personalizados
+alias avenv="source venv/bin/activate"
+3.- Presiona la tecla ESC y escribe :wq para salir y guardar.
+4.- Hasta la siguiente sesion abierta se podrá ejecutar el comando personalizado, 
+si quieres que funcione de una vez ejecuta el siguiente comando :
+
+source ~/.bashr
+Excelente, muchas gracias!
+
+Solo agregar algo, al momento de darle ESC necesitan escribir lo siguiente: " :wq " (solo lo que esta dentro de las comillas)
+
+alias en ubuntu++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Hacer un alias en ubuntu:
+Para hacerlo en este sistema operativo, necesitamos que cada que la terminal cargue, el alias sea leído, para ello,
+ la terminal tiene un archivo llamado .bashrc que contiene la configuración inicial, y usualmente se encuentra en nuestro home, 
+por lo que hacemos lo siguiente:
+.
+
+Ejecutar sudo nano ~/.bashrc
+Ir al final del archivo
+Agregar el comando: alias avenv='source venv/bin/activate'
+Guardar presionando ctrl + o y luego salir con ctrl + x
+Reejecutar la configuración de la terminal: source ~/.bashrc
+Activar el entorno vitual avenv
+.
+De esa forma persistirá siempre, ya que el alias se guarda dentro del archivo de configuración de la termial 😄
+Nota: Si usas zsh el primer paso sería
+
+sudo nano ~/.bashrc
+
+Si estas usando zsh en el primer paso utiliza:
+
+sudo nano ~/.zshrc
+
+
+alias en git bash++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Si estas buscando hacer el trabajo en un Git Bash en windows.
+
+La tarea es la siguiente:
+
+El entorno virtual se activa con el siguiente comando:
+
+source venv/Scripts/activate
+luego si quieres poner un alias permanente debes seguir los siguientes pasos:
+
+Ir a la carpeta C / Program Files /Git/etc/profile.d
+Abrir el archivo aliases con VSC
+Pegar el alias con el siguiente formato:
+alias avenv="source venv/Scripts/activate"
+
+alias en power shell+++++++++++++++++++++++++++++++++++++++++++++
+Para poder crear un Alias en PowerShell, se debe usar el comando Set-Alias:
+
+Set-Alias  -Name avenv  -Value .\venv\Scripts\activate
+Para verificar si quedo registrado, se usa el comando Get-Alias:
+
+Get-Alias  -Name avenv
++++++++++++++++++++PIP =paquetes de instalacion de python=package installer for python+++++++++++++++++++++++++
+pip es un instalador de paquetes que vienen de fabrica dentro de python
+para ver que paquetes tienesinstalaos en python ponemos pip freeze  en windows 
+en linux: pip3  
+pip nos sirve para instalar 
+instalamos pandas con el siguiente comando: pip install pandas   
+instalamos pandas que sirve para ciencia de datos, por defecto se instalaran 5 paqutes, umpy,pandas,python-dateutil,pytz y six 
+la consola nos lanzara esto al poner el comando pip freeze: 
+
+numpy==1.22.4
+pandas==1.4.2
+python-dateutil==2.8.2
+pytz==2022.1
+six==1.16.0
+
+
+estos son los paquetes descargados y sus versiones,si vamos a trabajar con alguien, esa persona debera tener las mismas versiones que nosotros
+podemos guardar las versiones que nosotros hemos descargado y enviarsela a la persona con la que trabajaremos, con el comando:
+pip freeze > requirements.txt        con este comando creamos un documento y guardamos el contenido que nos da el comando pip freeze
+podemos ver el contenido del documento requirements.txt con el comando cat: cat requirements.txt 
+y la otra persona instalaria las versiones de los paquetes que trae el documento con el siguiente comando: pip install -r requerements.txt
+con ese comando se instalara los paquetes y las versiones del documento 
+
+Nota: los paquetes que instalemos dentro de nuestro entorno virtual de python no afectaa otras versiones o trabajos de python en nuestra pc,
+      unicamente serviran en uestro entorno virtual. 
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++preparando el entorno virtual++++++++++++++++++++++++++++
+1.-nosotros abrimos visual studio code desde la consola usando el comando: code . 
+donde code representa al software visua studio code y el "." significa que estaremos trabajandodesde la carpeta
+en la que estamos y si creamos un archivo sera creadoen esa carpeta.
+
+2.-creamos una carpeta llamada ".gitignore" ya que trabajaremos en un entorno python personalizado eindependientemente de nnuestro 
+codigo no podemos mandar todos los archivos a github ya que no le serviran esos archivos a otros programadores ya que no tendran
+las mismas versiones de trabajo que nosotross establecimos en nuestro entorno virtual   en esa ese archivo creado (archivo de texto)
+lo seleccionamos en code y ponemosel nombre de la carpeta que queremos omitiry un "/":  evenv/ 
