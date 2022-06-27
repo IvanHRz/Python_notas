@@ -9,9 +9,18 @@ def creas una funcion (def =definicion de funcion) por lo tanto lo usas asi: def
 en def puedes escribir parametros dentro delos parentecis 
 
 usamos las palabras "continue y break" cuando usamos un condicional en un bucle continue nos indica salsar un valor especifico y break sale del condicional 
-
++++++++++++++++++++++++++++++++++++interpolacion++++++++++++++++++++++++++++++++++++++++++
+si queremos imprimir el resultado de una variable en python usamos la siguiente estructura
+print(f"mensaje: {variable}")
 
 funciones de string 
+variable.append(elemento a agregar) nos ayuda a ingresar un nuevo elemento a una lista
+variable.insert(indice,elemento_a_agregar) esto nos sirve para insertar un elemento en una lista en un indice especifico
+                                           todos los demás indices se mueven a la derecha
+variable.remove(elemnto a remover) esto nos ayuda a borrar un elemento dentro de nuestra lista
+variable.clear() esto limpia todos los elementos de nuestra lista
+del variable      esto borrara nuestra lista
+variable.pop()esto nos eliminara el ultimo valor agregado a nuestra lista
 variable.upper() transforma el contenido de la varable en cuestion en mayusculas 
 variable.capitalize() transforma la primera letra de un nombre en mayusculas
 variable.strip() elimina los espacios que pueden estar a final o al principio de una cadena de caracteres 
@@ -21,6 +30,9 @@ variable[indice] con esto podemos acceder a una letra en especifico en una caden
 len(varible) nos dice cuantos caracteres tiene nuestra cadena 
 variable[elemnto_inicial:elemento_final] aqui podemos partir una cadena de txto por ejempo variable[:3] va del primer elemento al 3
 variable[elemnto_inicial:elemento_final:cantidad_de_pasos] ejemplo variable[1:7:2] partimos del elemnto 1 al 7 de 2 en 2 
+
+tuple(nombre_de_la_lista)con esto convertimos una lista en tupla
+list(nombr_de_la_tupla) con esto convertimos a una tupla en lista
 
 para convertir los elementos de una lista en un string hacemos uso del modulo "".join(lista)
 
@@ -65,15 +77,17 @@ tiempo si se cumple no queremos que ejecute una accion y que solo pase de argo a
 codigo y asi no detener el programa. Ejemplo:
 en este ejemplo queremos imprimir los numeros del 1 al 1000 pero sin imprimir los numeros pares, al cumplir
 la condicion de detectar un numero par el condicional saltara a la siguiente linea de codigo y no imprimira 
-el umero par
+el numero par
 
 def run():
     for contador in range(1000):
-        if contador % 2 != 0:
+        if contador % 2 == 0:
             continue
         print(contador)   
+
+
 Break:
-de forma similar que con el continue, brak salta la linea pero comi diferencia deja de ejecutar el bucle.
+de forma similar que con el continue, break salta la linea pero con la diferencia deja de ejecutar el bucle.
 Ejemplo:aqui el programa imprimira todos los numeros del rang pero en caso de encontrarse con el numero
 5698 dejara de ejecutarse  
   
@@ -122,14 +136,110 @@ ejemplo:
 j.pop(3)
 j=[1,2,true,false]
 
-                                                Tuplas
+si queremos cambiar un dato dentro de una lista ponemos el nombre de la lista, luego el numero del lugar
+en donde lo vamos a asignar y luego el signo asignacion y el valor deseado.
+ejemplo: de la lista  j = [1,2,true,4.5,false]
+j[2]= "juan"
+si lo imprimimos veremos 
+j = [1,2,juan,4.5,false]
+     -
 
-Una lista de caracteres (vector) se forma con un grupo de elementos entre parentesis () las tupla son un objeto estático no se pueden agregar o borrar elementos
+
+-------------------------------------------------------- rangos en listas-----------------------------------------------------
+
+usamos ":" para  definir rangos en una lista
+si tenemos j = [1,2,true,4.5,false] y queremos asignar un rango para que imprima del dato 2 al 4ponemos
+print(j[2:])
+nos imprimira: true,4.5,false
+
+esto nos imrimira del dos al 4 que en este caso por ser el ultimo lo podemos omitir pero si lo queremos poner seria 
+print(j[2:4])
+igualmente nos imiprimirá : true,4.5,false
+
+si queremos ir desde elinicio de la lista hasta el valor 3 ponemos
+print(j[:3]) ó print(j[0:3]),  esto nos imprimirá:1,2,true,4.5
+
+
+    ----------------------------------------------- para usar rango en un bucle ---------------------------------------------
+for i in range(inicio,final,forma_en_la_que_va_a_avanzar):
+
+ejemplo: para ir del rango 2 al 10 de 2 en 2 
+Nota:recordar que en rangos siempre poner un valor de más al valor máximo
+for i in range(2,11,2):
+   print(i)
+
+solo nos imprimirá:2,4,6,8,10
+
+Ejemplos:
+print("ejercicio 1")
+#iterar un rango de 0 a 10 e imprimir números divisibles entre 3
+for i in range(11):
+    if (i % 3 == 0) and i != 0:
+        print(i)
+
+print("ejercicio 2")
+#crear un rango de numeros de 2 a 6, e imprimirlos
+for A in range(2,7):
+    print(A)
+
+print("ejercicio3")
+#Crear un rango de numeros de 3 a 10, pero con incremento de 2 en 2
+for E in range(3,11,2):
+    print(E)
+   
+---------------------------------------------------Tuplas-----------------------------------------------------------------
+
+Una lista de caracteres (vector) se forma con un grupo de elementos entre parentesis () las tupla son un objeto estático 
+no se pueden agregar o borrar elementos
 es más eficiente y rápido trabajar con tuplas en bucles y se consideran inmutable que significa que no puede cambiar y eso ahorra gasto
 de memoria y optimizan nuestro trabajo 
+si una tupla solo tendra un elemento al final del elemento debe tener una coma, ejemplo:
+tupla= ("uno",)
+para la visualizacion de datos de tuplas en los print es igual que en las listas, usamos corchetes
 
-                                               Diccionarios
-los diccionarios sirven para ordenar datos y un diccionario se divide en dos etapas las keys y los values 
+por defecto al imprimir cada elemento de una tupla y de una lista usando un bucle nos imprimira cada elemento con un salto de linea
+pero eso lo podemos evitar si ponemos end=" " despues del iterador en la sentencia print. Ejemplo:
+for fruta in frutas:
+    print(fruta, end=" ") 
+
+
+si queremos agregar un valor a una tupla podemos convertirla a una lista, agregar el valor requerido y despues volverla a convertir en
+una tupla. Al igual que en los tipos solo ponemos list(nombre_de_la_tupla) y con esto la convertimos en una lista,
+despues usariamos list.append(valora incorporar) ó list.insert(indice,valora incorporar) y al final volvemos a convertir en tupla
+con tuple(nombre_de_la_lsita)
+
+si queremos eliminar una tupla usamos la funcion del   ejemplo:
+del nobre_de_la_tupla 
+
+
+
+
+
+ ----------------------------------------------------Set------------------------------------------------------------
+es como una lista pero la diferencia es que no guarda un orden en concreto y sus valores se guardan dentro de llaves, ejemplo:
+letras = {"q","w","t","e"}
+
+esto al imprimirlo revolvera el orden de los datos, ya que no existen los indices dentro de un set
+para revisar si un dato esta en un set ponemos, por ejemplo la letra q en nuestro set establecido anterior
+print("q" in letras)
+
+podemos agregar elementos al set con la funcion add
+ejemplo:
+letras.add(elemento_a_agregar)
+
+un set no soporta elementos duplicados 
+podemos eliminar elementos en nuestro set, emeplo:
+letras.remove(elemento_a_eliminar)
+para limpiar el contenido de nuestro set ponemos
+letras.clear()
+para elliminar nuestro set, ponemos:
+del letras
+
+
+
+ ----------------------------------------------Diccionarios------------------------------------------------------------
+los diccionarios sirven para ordenar datos y un diccionario se divide en dos etapas las keys y los values, en un diccionario
+al igual que en un set no existen los indices, accedemos a sus datos mediante a las llaves 
 creamos un diccionario con esta estructura:
 
 variable_nombre_del_diccionario = {
@@ -152,10 +262,234 @@ for iterador in variable_nombre_del_diccionario.values():
 
 esto nos imprimira cada nombre_del_valor del diccionario
 
-para imprimir los dos hacemos, hacemos uso del modulo .items():
+para imprimir los dos hacemos, hacemos uso del modulo .items()    siendo el primer iterador el que imprimira
+los nombres de las llaves y el segundo iterador el que imprimirá los valores :
 
 for iterador1,iterador2 in variable_nombre_del_diccionario.items():
     print(iterador1 + iterador2)  
+
+
+para imprimir un valor en especifico ponemos:
+
+print(nombre_del_diccionario["nombre_de_la_llave"])
+
+
+para modificar el valor de un diccionario ponemos
+
+nombre_del_diccionario["nombre_de_la_llave"] = "nuevo valor de la llave"
+
+
+-si queremos agregar un elemento a nuestro diccionario
+nombre_del_diccionario ["nombre_de_la_nueva_llave"]= "valor de la llave"
+
+
+-Nota: no podemos agregar llaves duplicadas
+
+-si queremos eliminar un elemento usamos .pop  ejemplo:
+nombre_del_diccionario.pop["nombre_de_la_llave_a_eliminar"]
+
+-si queremos eliminar los datos del diccionario
+nombre_del_diccionario.clear()
+-si queremos eliminar el diccionario por completo, ponemos:
+del nombre_del_diccionario 
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++funciones++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+usamos el comando "def" para crear una funcion, usamos return para devolver el valor de una variable o algun resultado
+que podria ser lo mismo. Ejemplo:
+
+*********************************
+def suma(n1,n2):
+    return n1 +n2
+
+resultado=suma(4,6)
+
+print(f"el resultado es: {resultado}")
+*****************************************
+
+
+podemos definir una tupla dentro de una funcion poniendo * antes del nombre que recibira la tupla ejemplo:
+
+********************************************
+def listarNombres(*nombres)
+    for nombre in nombres:
+        print(nombre)
+
+listarNombres("juan","ivan","karla","Ernesto")
+******************************************************  
+nomrmalmente para crear una tupla de una funcion ponemos *args pero en realidad podemos poner cualquier nombre
+en este caso pusimos *nombre 
+ejemplo de funcion y multiplicacion con una tupla creada en la funcion:
+
+*******************************************************
+def suma(*args):
+    total = 0
+    for numero in args:
+        total += numero
+    return total
+    # print(f"el total de la suma es: {total}")
+
+# suma(9,5,3)
+print(f"el total de la suma es: {suma(9,5,3)}")
+
+**********************************************************
+def multi(*args):
+    total=1
+    for numero in args:
+        total*=numero
+    print(f"el total de la multiplicacion es: {total}")
+
+multi(1,5,3)
+***********************************************************
+
+Para crear un diccionario desde una funcion ponemos doble asterisco y la palabra kwargs = keyword arguments
+sin envargo como en la tupla esto no es obligatorio y podemos ocupar cualquier palabra en vez de kwargs
+lo unico obligatorio es el doble asterisco.
+ejemplo: 
+def listarTerminos(**kwargs):
+    for llave, valor in kwargs.items():
+        print(f"{llave}: {valor}")
+
+listarTerminos(IDE="integrated development environment", PK="Primary key")
+
+
+siendo aqui las palabras IDE y PK nuestras llaves y lo que está entre comillas los valores 
+
+
+Para crear una lista en una funcion, no debemos poner ningun asterisco, solo asignarle un argumento
+y esto python lo entendera como una lista, a continuacion tenemos un ejemplo con tres impresiones
+de la funcion "lis" en donde usamos un parametro como lista:
+************************************************************
+def lis(letras):
+    for letra in letras:
+        print(letra)
+
+lis("primero")
+lis((10,11))
+lis([12,13])
+**************************************************************
+impresion:
+p
+r
+i
+m
+e
+r
+o
+10
+11
+12
+13
+donde cada mensaje sera impreso de forma que cada caracter se imprimira con un salto de linea por el bucle 
+el primero fue una cadena de caracteres, la segunda una tupla por estar entre parentesis y la tercera una lista
+por estar en corchetes. tenemos que tener claro que no podemos trabajar con 
+
++++++++++++++++++++++++++++++++++++++++++++++++Recursividad+++++++++++++++++++++++++++++++++++++++++++++
+-Funciones recursivas: Basicamente una funcion recursiva es mandar a llamar a una función dentro de si misma.
+un ejemplo de recursividad es el factorial, en donde la formula matemática es: factorial(N) = N * factorial (N-1) si N > 0
+por ejemplo, si queremos el factorial de 5 tenemos que multiplicar por sus antecesores: 
+#5! = 5 * 4 * 3 * 2 * 1,  tambien nos podemos dar cuenta que el factorial de 5 se puede visualizar como 
+la multiplicacion de 5 * 4! de esta forma cumpliriamos la formula pasada en donde sustituyendo tenemos:
+5! = 5 * 4!, sin embargo al restar un numero al factorial tenemos que tomar en cuena que tenemos que tener
+una base, al multiplicar tenemos que tener en cuenta que nuestro numero mínimo debe de ser el 1 ya que el 0
+nos eliminaria todo el procedimiento, al plantearuna base se le llama "caso base", toda recursion necesita un
+"caso base" si queremos que termine si no se volvera un bucle infinito.  
+ 
+ejemplo:vamos a calcular el factorial del numero 5
+#5! = 5 * 4 * 3 * 2 * 1
+#5! = 5 * 4 * 3 * 2 
+#5! = 5 * 4 * 6 
+#5! = 5 * 24 
+#5! = 120
+*****************************************************
+1  def factorial(numero):
+2  
+3      if numero == 1:                                          # caso base
+4          return 1
+5      else:
+6          print(f"el valor actual de numero es: {numero}")     #caso recursivo 
+7
+8          return numero * factorial(numero-1)
+9
+10 for i in range(1,6):
+11     print(i,factorial(i))
+********************************************************
+
+Nota:Tenemos que tener mucho cuidado y recordar que una funcion solo dara el valor de un resultado cuando
+le sea devuelto por un return.
+
+Nota: una vez accediendo a 
+
+Explicacion del algoritmo:
+empezamos desde el for en la linea 10 en donde le diremos que queremos iterar del rango 1 al 5, dentro
+del bucle imprimiremos cada iteracion del bucle y mandaremos a llamar a la funcion "factorial()"
+diciendole que empezando desde el iterador 1 al 5 nos muestre los numeros factoriales del rango,
+al estar en el print no podemos imprimir nada hasta neter los dos valores, solo tenemos uno por el momento
+que es el valor del iterador que en el primer caso sería "1" entonces entramos a la funcion en donde el 
+parametro numero pasara a tomar el valor del iterador entonces numero valdrá "1" y por lo tanto podemos entrar
+en el primer condicional y vemos que efectivamente nuestro parametro "numero" vale "1" entonces devolvemos
+un valor de "1" por el return a la funcion y salimos de ella, ahora si podemos regresar a la linea 11
+e imprimir los dos valores, luego volvemos al principio del bucle y nos dice que ahora hagamos lo mismo, pero
+con el iterador con valor "2", entonces pasamos de vuelta a la linea 11 y el print nos dice que no podemos
+imprimir los dos valores que tenemos que ir a ver que pex con la funcion y entonces entramos a la funcion y llegamos a la 
+linea 1 y directo nos manda a checar si cumplimos con la condicion del primer condicional y esta vez vemos que nel que no
+la cumplimos, entonces nos pasamos directo al else en donde imprimimos el valor actual del parametro "numero" 
+luego pasamos a la linea 8 en donde nos dice que para poder salir de la funcion tenemos realizar
+una operacion matemática , sin embargo no será sencillo por que tenemos que realizar esa operación
+con dos valores, pero solo tenemos disponible uno que es el valor del parametro "numero" y el otro valor
+es una incocnita y para averiguarlo tenemos que entrar a la funcion "factorial(numero-1)" y pues 
+ni hablar, entramos, y vemos que regresamos a la linea 1 pero ahora le han restado un valor a nuestro parametro 
+"numero" de valer "2" ahora vale "1" y pasamos al primer condicional y afortunadamente vemos que cumplimos
+con la condicion y podemos acceder al return el cual nos esta dando un valor de retorno para la funcion,
+lo hemos logrado, hemos hallado el valor de la funcion, es "1" ahora regresaremos a la linea 1 y le diremos que ya tenemos su valor 
+con la condicion especificada y nos dira que ahora debemos regresar al return de la linea 8 del else y mostrar ese valor de
+la funcion para que ya deje de ser una incognita el valor de "factorial(numero-1)" ya que ahora
+sabemos que vale "1" y ahora resolvemos la operacion, ahora multiplicamos 2 * 1 y salimos de la funcion
+ vamos directo a la linea 11 en donde le decimos al print que que pedo que ya tenemos el valor de la funcion que es 2
+y nos imprimiran 2 y 2 (el iterador y la funcion) ahora regresaos a la linea 10 en donde esta el for
+y nos dice el wey que muy bien pero que ahora el iterador cambiara de valor y ahora valdrá 3
+que tenemos que hacer el mismo proceso....
+iremos la funcion y esta nos pasara al condicional, como no lo cumplimos nos pasa directoa al else
+en su return veremos que nos dice que para salir de ahi tenemos que realizar la operacion
+pero solo conocemos un dato (nuestro parametro actual) y el otro es una incognita (factorial(numero-1))
+entonces entramos a esa funcion ahora con un parametro -1 oesa que nuestro parametro vale 2 y con ese
+valor seguimos sin cumplir la regla entonces regresamos al else y vemos que nos vuelve a pedir que hagamos la operacion 
+pero no podemos y volvemos a entrar a la funcion pero ahora con el valor de 1 en el parametro y en ese momento
+si podemos cumplir con el condicional de la funcion y retornar un valor a la funcion y regresar al return del else 
+y decirle que ya hayamos el valor de la incognita, que vale 1 y que ya podemos empezar a realizar las operaciones
+entonces multiplicamos 2*1 =2 y ese valor lo retornamos a la funcion despues con ese valor realizamos 
+la operacion que teniamos pendiente, ya que factorial(numero-1) = 2 ahora multiplicamo 3 * 2 =6
+y el 6 sera el valor que retornaremos a la funcion del la linea 1 y podremos salir de ella al print del bucle 
+y asi consecutivamente.  
+
+
+1.- comprobar si nuestro parametro es igual al caso base, en este caso igual a 1
+2.- si no, entramos al else y vemos que datos tenemos y que incognitas
+3.- entramos a la funcion incognita 
+4.- iteramos de esa manera hasta llegar al caso base y poder retornar un valor a la funcion
+    y asi regresar un valor a la funcion del else y dejar de tener valores con incognitas
+5.- se multiplicaran todas las operaciones almacenadas  
+  
+
+
+Aqui definimos la funcion factorial, si el numero asignado como parametro es igual a 1 retornamos a 1
+y terminamos la funcion por que como estamos multiplicando no podemos multiplicar algun 
+valor por 0 o todo el resultado será 0, despues ponemos en el else la operacion: numero * factorial(numero-1)
+en esta funcion estaremos iterando hasta que el "numero" sea igual a 1 en donde por ejemplo tendremos en la primera 
+iteracion: 
+numero = 5 * 4
+numero = 20 * 3
+numero = 60 * 2
+numero = 120 * 1
+numero = 120
+factorial(numero) = return = numero = 120     
+
+
+
+
+
 
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++dOCUMENTACION DE PYTHON++++++++++++++++++
@@ -292,7 +626,7 @@ y la otra persona instalaria las versiones de los paquetes que trae el documento
 con ese comando se instalara los paquetes y las versiones del documento 
 
 Nota: los paquetes que instalemos dentro de nuestro entorno virtual de python no afectaa otras versiones o trabajos de python en nuestra pc,
-      unicamente serviran en uestro entorno virtual. 
+      unicamente serviran en nuestro entorno virtual. 
 
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++preparando el entorno virtual++++++++++++++++++++++++++++
@@ -300,7 +634,7 @@ Nota: los paquetes que instalemos dentro de nuestro entorno virtual de python no
 donde code representa al software visua studio code y el "." significa que estaremos trabajandodesde la carpeta
 en la que estamos y si creamos un archivo sera creadoen esa carpeta.
 
-2.-creamos una carpeta llamada ".gitignore" ya que trabajaremos en un entorno python personalizado eindependientemente de nnuestro 
+2.-creamos una carpeta llamada ".gitignore" ya que trabajaremos en un entorno python personalizado e independientemente de nuestro 
 codigo no podemos mandar todos los archivos a github ya que no le serviran esos archivos a otros programadores ya que no tendran
 las mismas versiones de trabajo que nosotross establecimos en nuestro entorno virtual   en esa ese archivo creado (archivo de texto)
-lo seleccionamos en code y ponemosel nombre de la carpeta que queremos omitiry un "/":  evenv/ 
+lo seleccionamos en code y ponemosel nombre de la carpeta que queremos omitir y un "/":  evenv/ 
